@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Boat - Creative Designer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #f0f4f8;
+            color: #1a1a1a;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a3c34, #26a69a, #32baa8);
+            color: white;
+            text-align: center;
+            padding: 7rem 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.15), transparent 50%),
+                        radial-gradient(circle at 70% 30%, rgba(38, 166, 154, 0.2), transparent 50%);
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        header p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.4rem;
+            max-width: 750px;
+            margin: 0 auto 2.5rem;
+            position: relative;
+            z-index: 2;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background: #fff;
+            color: #1a3c34;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 25px;
+            transition: background 0.3s, color 0.3s;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-button:hover {
+            background: #26a69a;
+            color: #fff;
+        }
+
+        nav {
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1.2rem 0;
+        }
+
+        nav ul li {
+            margin: 0 2rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #26a69a;
+            transform: translateY(-2px);
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            color: #1a3c34;
+        }
+
+        .about {
+            background: linear-gradient(135deg, #fff, #f8fffe);
+            border-radius: 20px;
+            padding: 4rem 3rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(38, 166, 154, 0.1);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #26a69a, #1a3c34, #26a69a);
+            border-radius: 20px 20px 0 0;
+        }
+
+        .about p {
+            font-family: 'Roboto', sans-serif;
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.25rem;
+            color: #2c3e50;
+            line-height: 1.7;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #26a69a;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #7a8996;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #fff, #f9fcfb);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #26a69a, #1a3c34);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 15px 35px rgba(38, 166, 154, 0.15);
+            border-color: rgba(38, 166, 154, 0.2);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #26a69a, #1a3c34);
+            border-radius: 15px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            box-shadow: 0 4px 15px rgba(38, 166, 154, 0.3);
+        }
+
+        .service-card h3 {
+            margin-bottom: 1.2rem;
+            color: #1a3c34;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .service-card p {
+            font-family: 'Roboto', sans-serif;
+            color: #2c3e50;
+            line-height: 1.6;
+            font-size: 1.05rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .portfolio-item:hover img {
+            transform: scale(1.08);
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 60, 52, 0.9), rgba(38, 166, 154, 0.8));
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .portfolio-overlay p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.5;
+            max-width: 280px;
+        }
+
+        .portfolio-tag {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #26a69a, #1a3c34);
+            padding: 4rem 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(26, 60, 52, 0.2);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(-50%, -50%) rotate(0deg); }
+            50% { transform: translate(-50%, -50%) rotate(180deg); }
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact p {
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            font-size: 1.15rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .contact a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: opacity 0.3s;
+        }
+
+        .contact a:hover {
+            opacity: 0.8;
+        }
+
+        .scroll-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #26a69a;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 100;
+        }
+
+        .scroll-to-top.visible {
+            opacity: 1;
+        }
+
+        .whatsapp-button {
+            position: fixed;
+            bottom: 6.5rem;
+            right: 2rem;
+            background: #25D366;
+            color: #fff;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            z-index: 100;
+        }
+
+        .whatsapp-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1a3c34;
+            color: white;
+            margin-top: 3rem;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+
+            header p {
+                font-size: 1.1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            nav ul li {
+                margin: 0.8rem 0;
+            }
+
+            section {
+                padding: 3rem 1.5rem;
+            }
+
+            .portfolio-item img {
+                height: 200px;
+            }
+
+            .whatsapp-button {
+                width: 50px;
+                height: 50px;
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .cta-button {
+                padding: 0.6rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .whatsapp-button {
+                width: 45px;
+                height: 45px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Dream Boat - Creative Designer</h1>
+        <p>Transforming ideas into stunning visuals and seamless user experiences.</p>
+        <a href="#contact" class="cta-button">Get in Touch</a>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>Hi, I'm Dream Boat, a passionate creative designer with over 5 years of experience transforming ideas into captivating visual stories. I specialize in graphic design, video production, and UI/UX design, working with startups and established brands to create impactful digital experiences that drive results and connect with audiences on a deeper level.</p>
+        
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">150+</span>
+                <span class="stat-label">Projects Completed</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Happy Clients</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Years Experience</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Client Satisfaction</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2>Services</h2>
+        <div class="services">
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Graphic Design</h3>
+                <p>Creating compelling visual identities, logos, and marketing materials that communicate your brand's unique story and connect with your target audience effectively.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎬</div>
+                <h3>Video Production</h3>
+                <p>Crafting engaging video content from concept to final cut, including promotional videos, social media content, and motion graphics that captivate viewers.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3>UI/UX Design</h3>
+                <p>Designing intuitive digital experiences for web and mobile platforms, focusing on user journey optimization and conversion-driven interface design.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <h2>Projects</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="https://public.youware.com/users-website-assets/prod/bcc14329-dbed-4866-bc5c-add34db5623c/ec72a6042d8e4ee68309a3e5d2aa0b2f.jpg" alt="Brand Rebranding Project">
+                <div class="portfolio-overlay">
+                    <h3>Brand Rebranding Project</h3>
+                    <p>Complete brand identity redesign for a tech startup, including logo, color palette, and marketing materials that increased brand recognition by 40%.</p>
+                    <span class="portfolio-tag">Branding • Logo Design</span>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://public.youware.com/users-website-assets/prod/bcc14329-dbed-4866-bc5c-add34db5623c/1e26ab4a5a4e40cda777f58fd884dd48" alt="Video Production Project">
+                <div class="portfolio-overlay">
+                    <h3>Video Production Project</h3>
+                    <p>Professional promotional video for a software company featuring dynamic editing, motion graphics, and compelling storytelling that drove 25% more conversions.</p>
+                    <span class="portfolio-tag">Video Editing • Motion Graphics</span>
+                </div>
+            </div>
+            <div class="portfolio-item">
+                <img src="https://cdn.pixabay.com/photo/2015/05/28/14/53/ux-788002_640.jpg" alt="Mobile App UI/UX Design">
+                <div class="portfolio-overlay">
+                    <h3>Mobile App UI/UX Design</h3>
+                    <p>Complete user experience design for a fitness app, featuring intuitive navigation, engaging interactions, and accessibility-first approach with 4.8 star rating.</p>
+                    <span class="portfolio-tag">UI/UX • Mobile Design</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Let's Work Together</h2>
+        <p>Ready to bring your vision to life? I'm here to help you create exceptional designs that make an impact. Let's discuss your project and explore how we can achieve your goals together.</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>📧 Email</h4>
+                <a href="mailto:dream.boat@example.com">dreamboatisthegreatest1@gmail.com</a>
+            </div>
+            <div class="contact-item">
+                <h4>📞 Phone</h4>
+                <a href="tel:+1234567890">+234 704 370 2992</a>
+            </div>
+        </div>
+    </section>
+
+    <a href="#" class="scroll-to-top" id="scrollToTop">↑</a>
+    <a href="https://wa.me/+2347043702992" class="whatsapp-button" target="_blank" title="Chat on WhatsApp">📩</a>
+
+    <footer>
+        <p>© 2025 Dream Boat. All rights reserved.</p>
+        <a href="https://codecove1.github.io/-d-_C-v-/">Created by Code_Cove</a>
+    </footer>
+
+    <script src="https://lib.youware.com/youware-lib-editor.1751946057.js" id="yourware-lib"></script>
+    <script>
+        // Scroll-to-top button visibility
+        window.addEventListener('scroll', () => {
+            const scrollToTop = document.getElementById('scrollToTop');
+            if (window.scrollY > 300) {
+                scrollToTop.classList.add('visible');
+            } else {
+                scrollToTop.classList.remove('visible');
+            }
+        });
+    </script>
+</body>
+</html>
